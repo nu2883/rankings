@@ -5,72 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TTC</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
-<body>
+<body >
+<div id="app">
+    <div v-if="!show_menu">
     <header>
         <a href="#" class="logo">Treasury Tenis Club</a>
         <ul><li><a href="#">Rankings</a></li></ul>
         <ul><li><a href="#">Players</a></li></ul>
-        <ul><li><a href="#">Contact</a></li></ul>
-        <i class="fas fa-bars"></i>
+        <ul><li><a href="#">Turnament</a></li></ul>
+        <i @click="mklikMenu" class="fas fa-bars"></i>
     </header>
     
     <section class="banner">
+
         <div style="margin-top: 100px;">
 
-            <img  style:" display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;" src="https://gdurl.com/5jc4" width="100%" alt="">
+            <img  class="gambar" src="https://gdurl.com/5jc4" alt="">
         </div>
 
+        <!-- <img src="https://gdurl.com/5jc4" alt=""> -->
+        
         <table>
             <thead>
                 <tr>
-                    <td>Ranking</td>
-                    <td>Player</td>
-                    <td>Age</td>
-                    <td>Points</td>
+                    <th style="width: 20%; ">Ranking</th>
+                    <th style="width: 30%; text-align: center;">Player</th>
+                    <!-- <th>Age</th> -->
+                    <th>Points</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Yuni W</td>
-                    <td>48 YO</td>
-                    <td>150</td>
+                <tr v-for="x,index in rankings">
+                    <td>{{index+1}}</td>
+                    <td style="width: 30%; text-align: left;">{{x.player}}</td>
+                    <!-- <td>48 YO</td> -->
+                    <td>{{x.totalPoint}}</td>
                 </tr>
-                <td>2</td>
-                <td>Yuni W</td>
-                <td>48 YO</td>
-                <td>150</td>
-            </tr>
-            <td>3</td>
-            <td>Yuni W</td>
-            <td>48 YO</td>
-            <td>150</td>
-        </tr>
-        <td>4</td>
-        <td>Yuni W</td>
-        <td>48 YO</td>
-        <td>150</td>
-    </tr>
-    <td>5</td>
-    <td>Yuni W</td>
-    <td>48 YO</td>
-    <td>150</td>
-</tr>
+
             </tbody>
         </table>
-    </section>
 
-    <script type="text/javascript">
+        {{rankings}}
+    </section>
+    
+    </div>
+    <div class="menu" v-if="show_menu">
+
+        <div style="display: flex; justify-content: space-between;"><h1>Menu  </h1> <h1 @click="show_menu = false" style="color:red;">x</h1></div>
+        <ul><li><a href="#">Rankings</a></li></ul>
+        <ul><li><a href="#">Players</a></li></ul>
+        <ul><li><a href="#">Turnament</a></li></ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
         window.addEventListener("scroll", function(){
             var header = document.querySelector("header");
             header.classList.toggle("sticky", window.scrollY > 0);
         })
-    </script>
+        </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="js.js"></script>
 </body>
 </html>
