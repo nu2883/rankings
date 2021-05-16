@@ -106,3 +106,33 @@ table td{
     text-align: center;
 
 }
+.gambar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+.menu{
+    position: fixed;
+    margin-top: 50px;
+    width: 200px;
+    text-align: left;
+    color: white;
+    font-size: 25px;
+    font-weight: 250px;
+    margin-left: 100px;
+    
+    
+}
+.menu h1{
+    margin-bottom: 50px;
+
+}
+.menu ul{
+    margin-bottom: 50px;
+}
+.menu ul li a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
